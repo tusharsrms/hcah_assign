@@ -1,0 +1,25 @@
+<div class='col-md-8 col-md-offset-2 panel panel-default'>
+  <div class='panel-body'>
+
+    <h2>HCAH</h2>
+    <h4> User Details</h4>
+    <div class='panel panel-default'>
+      <div class='panel-body'>
+        <table class='table table-hover no-border-top'>
+          <tr>
+            <td>Name:</td>
+            <td><%= @user.fullname %></td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td><%= @user.address1 %></td>
+            <td><%= @user.address2 %></td>
+            <td><%= @user.city %></td>
+            <td><%= @user.state %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+</div>

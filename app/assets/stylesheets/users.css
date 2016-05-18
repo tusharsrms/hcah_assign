@@ -8,3 +8,8 @@ p, ol, ul, td {
   line-height: 18px;
 }
 
+body { padding-top: 20px; }
+
+.container {
+	max-width: 940px;
+}

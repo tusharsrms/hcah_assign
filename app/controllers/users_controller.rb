@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to new_user_path, notice: 'Users PDF is successfully created.' }
+        format.pdf do
+          render pdf: 'file_name',
+                template: 'users/create.pdf.erb',
+                layout: 'pdf.html.erb'
+        end
       else
         format.html { render :new }
       end

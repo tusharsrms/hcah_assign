@@ -7,6 +7,21 @@
 #
 class UsersController < ApplicationController
 
+  # GET /users/
+  # Action used to get the user details.
+  def show
+    @user = User.find params[:id]
+    respond_to do |format|
+      format.html { render :show }
+      format.pdf do
+        render pdf: 'file_name',
+              template: 'users/show.pdf.erb',
+            layout: 'pdf.html.erb'
+      end
+    end
+  end
+  #end
+
   # GET /users/new
   # Action used to get the new form for the user.
   def new
@@ -19,18 +34,10 @@ class UsersController < ApplicationController
   # Action used to get the details of family alerts.
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to new_user_path, notice: 'Users PDF is successfully created.' }
-        format.pdf do
-          render pdf: 'file_name',
-                template: 'users/create.pdf.erb'#,
-          #       layout: 'pdf.html.erb'
-        end
-      else
-        format.html { render :new }
-      end
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render :new
     end
   end
   #end

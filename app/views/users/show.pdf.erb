@@ -7,32 +7,36 @@
       <div class='panel-body'>
         <table class='table table-hover no-border-top'>
           <tr>
-            <td>Name:</td>
-            <td><%= @user.fullname %></td>
+            <th> Name </th>
+            <th> Address1 </th>
+            <th> Address2 </th>
+            <th> City </th>
+            <th> State </th>
+            <th> Zipcode </th>
           </tr>
           <tr>
-            <td>Address:</td>
+            <td><%= @user.fullname %></td>
             <td><%= @user.address1 %></td>
             <td><%= @user.address2 %></td>
             <td><%= @user.city %></td>
             <td><%= @user.state %></td>
+            <td><%= @user.zipcode %></td>
           </tr>
         </table>
 
         <div class="sigPad sigWrapper">
           <div class="typed"></div>
-          <canvas class="pad" width="298" height="55"></canvas>
+          <canvas class="pad" width="400" height="55"></canvas>
           <input type="hidden" name="output" class="output"/>
         </div>
       </div>
     </div>
-    
   </div>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function () {
-    sig = <%= JSON.parse @user.signature %>;
+    sig = <%= raw @user.signature %>;
     $('.sigPad').signaturePad({ displayOnly:true }).regenerate(sig);
   });
 </script>

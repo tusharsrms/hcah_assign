@@ -15,3 +15,12 @@
  *= require bootstrap
  *= require signature-pad
  */
+
+
+.sigWrapper {
+    clear: both;
+    height: 55px;
+    border: 1px solid #ccc;
+    width: 325px !important;
+    margin-bottom: 10px;
+}

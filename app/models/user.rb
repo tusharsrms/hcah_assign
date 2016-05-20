@@ -38,6 +38,6 @@ class User < ActiveRecord::Base
 
   # Get user's fullname
   def fullname
-    "#{first_name} #{last_name}"
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 end

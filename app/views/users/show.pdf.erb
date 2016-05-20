@@ -5,22 +5,19 @@
     <h4> User Details</h4>
     <div class='panel panel-default'>
       <div class='panel-body'>
-        <table class='table table-hover no-border-top'>
+        <table class='table'>
           <tr>
             <th> Name </th>
-            <th> Address1 </th>
-            <th> Address2 </th>
-            <th> City </th>
-            <th> State </th>
-            <th> Zipcode </th>
+            <th> Address</th>
           </tr>
           <tr>
             <td><%= @user.fullname %></td>
-            <td><%= @user.address1 %></td>
-            <td><%= @user.address2 %></td>
-            <td><%= @user.city %></td>
-            <td><%= @user.state %></td>
-            <td><%= @user.zipcode %></td>
+            <td>
+              <%= @user.address1 %><br>
+              <%= @user.address2 %><br>
+              <%= @user.city %><br>
+              <%= @user.state + ", " + @user.zipcode %>
+            </td>
           </tr>
         </table>
 

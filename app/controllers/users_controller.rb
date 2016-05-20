@@ -7,7 +7,15 @@
 #
 class UsersController < ApplicationController
 
+
   # GET /users/
+  # Action used to get the all user details.
+  def index
+    @users = User.all
+  end
+  #end
+
+  # GET /users/:id
   # Action used to get the user details.
   def show
     @user = User.find params[:id]

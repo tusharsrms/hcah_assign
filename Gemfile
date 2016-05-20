@@ -25,7 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'signature-pad-rails'
+git 'https://github.com/tusharsrms/signature-pad-rails.git' do
+  gem 'signature-pad-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

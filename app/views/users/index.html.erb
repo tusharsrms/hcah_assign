@@ -3,31 +3,37 @@
     <p id="notice"><%= notice %></p>
     <h2>HCAH</h2>
     <h4> User Details</h4>
-    <div class='panel panel-default'>
-      <div class='panel-body'>
-        <table class='table table-hover no-border-top'>
-          <tr>
-            <th> Name </th>
-            <th> Address1 </th>
-            <th> Address2 </th>
-            <th> City </th>
-            <th> State </th>
-            <th> Zipcode </th>
-            <th> PDF </th>
-          </tr>
-          <% @users.each do |user| %>
+    <% unless @users.blank? %>
+      <div class='panel panel-default'>
+        <div class='panel-body'>
+          <table class='table table-hover no-border-top'>
             <tr>
-              <td><%= user.fullname %></td>
-              <td><%= user.address1 %></td>
-              <td><%= user.address2 %></td>
-              <td><%= user.city %></td>
-              <td><%= user.state %></td>
-              <td><%= user.zipcode %></td>
-              <td><%= link_to "Download", user_path(user, format: :pdf), class: "btn btn-success" %></td>
+              <th> S.No </th>
+              <th> Name </th>
+              <th> Address1 </th>
+              <th> Address2 </th>
+              <th> City </th>
+              <th> State </th>
+              <th> Zipcode </th>
+              <th> PDF </th>
             </tr>
-          <% end %>
-        </table>
+            <% @users.each_with_index do |user, index| %>
+              <tr>
+                <td> <%= (index + 1) %></td>
+                <td><%= user.fullname %></td>
+                <td><%= user.address1 %></td>
+                <td><%= user.address2 %></td>
+                <td><%= user.city %></td>
+                <td><%= user.state %></td>
+                <td><%= user.zipcode %></td>
+                <td><%= link_to "Download", user_path(user, format: :pdf), class: "btn btn-success" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <h5> No User Details Found </h5>
+    <% end %>
   </div>
 </div>

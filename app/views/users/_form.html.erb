@@ -1,4 +1,12 @@
 <%= form_for @user, html: {class: "form-horizontal"}, format: :html do |f| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="control-group">
     <%= f.label :first_name, class: "control-label" %><br>
     <%= f.text_field :first_name, class: "form-control" %>
